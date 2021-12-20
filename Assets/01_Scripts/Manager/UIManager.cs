@@ -21,18 +21,18 @@ public class UIManager : MonoBehaviour
     private Text goldText = null;
     [SerializeField]
     private GameObject MicroMove;
-    //[SerializeField]
-    //private GameObject Pot1;
-    //[SerializeField]
-    //private GameObject Pot2;
-    //[SerializeField]
-    //private GameObject Pot3;
-    //[SerializeField]
-    //private GameObject Pot4;
-    //[SerializeField]
-    //private GameObject CuttingBoard;
-    //[SerializeField]
-    //private GameObject Macine;
+    [SerializeField]
+    private GameObject Pot1;
+    [SerializeField]
+    private GameObject Pot2;
+    [SerializeField]
+    private GameObject Pot3;
+    [SerializeField]
+    private GameObject Pot4;
+    [SerializeField]
+    private GameObject CuttingBoard;
+    [SerializeField]
+    private GameObject Macine;
     [SerializeField]
     private Text revenuecounttext;
     [SerializeField]
@@ -517,21 +517,21 @@ public class UIManager : MonoBehaviour
         goldText.text = string.Format("{0}₩", GameManager.Instance.CurrentUser.gold + GameManager.Instance.GetDayGold());
     }
 
-    public void OnclicPot1()
+    public void OnclickPot1()
     {
-        //rpck2(0, GameManager.Instance.recipe.Soup_Ramen, GameManager.Instance.recipe.Stir_Fried_Ramen, FinishType.Soup_Ramen, FinishType.Stir_Fried_Ramen, Pot1);
+        rpck2(0, GameManager.Instance.recipe.Soup_Ramen, GameManager.Instance.recipe.Stir_Fried_Ramen, FinishType.Soup_Ramen, FinishType.Stir_Fried_Ramen, Pot1);
     }
     public void OnclicPot2()
     {
-        //rpck2(1, GameManager.Instance.recipe.Soup_Ramen, GameManager.Instance.recipe.Stir_Fried_Ramen, FinishType.Soup_Ramen, FinishType.Stir_Fried_Ramen, Pot2);
+        rpck2(1, GameManager.Instance.recipe.Soup_Ramen, GameManager.Instance.recipe.Stir_Fried_Ramen, FinishType.Soup_Ramen, FinishType.Stir_Fried_Ramen, Pot2);
     }
     public void OnclicPot3()
     {
-        //rpck2(2, GameManager.Instance.recipe.Soup_Ramen, GameManager.Instance.recipe.Stir_Fried_Ramen, FinishType.Soup_Ramen, FinishType.Stir_Fried_Ramen, Pot3);
+        rpck2(2, GameManager.Instance.recipe.Soup_Ramen, GameManager.Instance.recipe.Stir_Fried_Ramen, FinishType.Soup_Ramen, FinishType.Stir_Fried_Ramen, Pot3);
     }
     public void OnclicPot4()
     {
-        //rpck2(3, GameManager.Instance.recipe.Soup_Ramen, GameManager.Instance.recipe.Stir_Fried_Ramen, FinishType.Soup_Ramen, FinishType.Stir_Fried_Ramen, Pot4);
+        rpck2(3, GameManager.Instance.recipe.Soup_Ramen, GameManager.Instance.recipe.Stir_Fried_Ramen, FinishType.Soup_Ramen, FinishType.Stir_Fried_Ramen, Pot4);
     }
     public void OnclickMicroMove()
     {
@@ -540,11 +540,11 @@ public class UIManager : MonoBehaviour
 
     public void OnclickCuttingBoard()
     {
-        //rpck(5, GameManager.Instance.recipe.MayoTuna, FinishType.MayoTuna, CuttingBoard);
+        rpck(5, GameManager.Instance.recipe.MayoTuna, FinishType.MayoTuna, CuttingBoard);
     }
     public void OnclickMacine()
     {
-        //rpck(6, GameManager.Instance.recipe.IceTea, FinishType.IceTea, Macine);
+        rpck(6, GameManager.Instance.recipe.IceTea, FinishType.IceTea, Macine);
     }
 
     public void rpck(int index, PoolObjectType[] finishTypes, FinishType finishType, GameObject obj)
@@ -556,9 +556,12 @@ public class UIManager : MonoBehaviour
             c = finishType;
             fstype.Enqueue(c);
             GameManager.Instance.recipe.currentingredientstype[index].Clear();
+            Debug.Log("?");
             int j = obj.transform.childCount;
+            Debug.Log(j);
             for (int i = 0; i < j; i++)
             {
+                Debug.Log("??");
                 ObjectPool.Instance.ReturnObject(obj.transform.GetChild(0).GetComponent<Ingredients>().Gettype(), obj.transform.GetChild(0).gameObject);
             }
         }
@@ -586,6 +589,7 @@ public class UIManager : MonoBehaviour
 
             fstype.Enqueue(c);
             int j = obj.transform.childCount;
+            Debug.Log(j);
             for (int i = 0; i < j; i++)
             {
                 ObjectPool.Instance.ReturnObject(obj.transform.GetChild(0).GetComponent<Ingredients>().Gettype(), obj.transform.GetChild(0).gameObject);
@@ -599,6 +603,7 @@ public class UIManager : MonoBehaviour
             GameManager.Instance.recipe.currentingredientstype[index].Clear();
             fstype.Enqueue(c);
             int j = obj.transform.childCount;
+            Debug.Log(j);
             for (int i = 0; i < j; i++)
             {
                 Debug.Log(i);
@@ -839,7 +844,7 @@ public class UIManager : MonoBehaviour
 
     public void OnClickLeft()
     {
-        if (ktchenrect.anchoredPosition.x <= -8880)
+        if (ktchenrect.anchoredPosition.x <= -11840)
         {
             return;
         }
