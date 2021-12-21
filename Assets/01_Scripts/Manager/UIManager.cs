@@ -874,12 +874,12 @@ public class UIManager : MonoBehaviour
         if(bgcount == 0)
         {
             bgcount = 1;
-            SoundManager.Instance.bgmSetVolume(true);
+            SoundManager.Instance.bgmSetVolume(false);
         }
         else
         {
             bgcount = 0;
-            SoundManager.Instance.bgmSetVolume(false);
+            SoundManager.Instance.bgmSetVolume(true);
         }
     }
     public void OnClickEf()
@@ -887,7 +887,7 @@ public class UIManager : MonoBehaviour
         if(efcount == 0)
         {
             efcount = 1;
-            SoundManager.Instance.efectSetVolume(true);
+            SoundManager.Instance.efectSetVolume(false);
         }
         else
         {
