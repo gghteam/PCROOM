@@ -35,7 +35,7 @@ public class RandomComponent : Component
                 }
                 break;
             case GameState.Kitchen:
-                GameManager.Instance.uiManager.GuestReset();
+                //GameManager.Instance.uiManager.GuestReset();
                 break;
             case GameState.Calculate:
                 GameManager.Instance.uiManager.ResetCalculate();
