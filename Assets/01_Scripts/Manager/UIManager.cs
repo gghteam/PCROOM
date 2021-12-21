@@ -63,6 +63,8 @@ public class UIManager : MonoBehaviour
     private RectTransform ktchenrect;
     [SerializeField]
     private RectTransform IWButton;
+    [SerializeField]
+    private Image iwimage;
 
     public Image calcanvas;
     public Image bksimage;
@@ -901,11 +903,13 @@ public class UIManager : MonoBehaviour
         {
             iwcount = 1;
             IWButton.DOAnchorPosY(350, 0.3f).SetEase(Ease.Linear);
+            iwimage.sprite = soundsprites[4];
         }
         else
         {
             iwcount = 0;
             IWButton.DOAnchorPosY(640, 0.3f).SetEase(Ease.Linear);
+            iwimage.sprite = soundsprites[5];
         }
     }
 }
